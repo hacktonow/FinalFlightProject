@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
-import { Grid, TextField, Button, makeStyles, Input } from "@material-ui/core";
+import { Grid, TextField, Button, makeStyles } from "@material-ui/core";
 
 
 // import Autocomplete from '@mui/material/Autocomplete';
@@ -106,7 +106,7 @@ function FlightForm() {
 
   const getFlight = async () => {
     const data = await AllData.getAllFlights();
-    console.log(data.docs);
+   
     setflightsData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -120,7 +120,7 @@ function FlightForm() {
 
   const getDesti = async () => {
     const data = await AllData.getAllDesti();
-    console.log(data.docs);
+    
     setdestiData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -135,7 +135,7 @@ function FlightForm() {
 
   const getAirline = async () => {
     const data = await AllData.getAllAirlines();
-    console.log(data.docs);
+    
     setairlinesData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -149,7 +149,7 @@ function FlightForm() {
 
   const getClass = async () => {
     const data = await AllData.getAllClasses();
-    console.log(data.docs);
+    
     setclassesData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -158,24 +158,34 @@ function FlightForm() {
 
   const classes = useStyles()
 
-  const [flyingfrom, setFlyingFrom] = React.useState("");
-  const [flyingto, setFlyingTo] = React.useState("");
+  const [flyingFrom, setFlyingFrom] = React.useState("");
+  const [flyingTo, setFlyingTo] = React.useState("");
 
-
+   console.log(flightsdata.origin)
   //this section for second form
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    console.log(flyingfrom);
-    console.log(flyingto);
-    //  setOpen(true);
-    // flightsdata.map((doc, index) => {
-    //   e.preventDefault();
-
-
-    //  doc.origin == select.fullplace
-
-    // })
+  const handleClickOpen = (e) => {
+    console.log('flyingTo, flyingFrom: ', flyingTo, flyingFrom);
+    e.preventDefault();
+    
+     flightsdata.map((doc, index) => {
+      
+      if(doc.origin === flyingFrom && doc.desti === flyingTo)
+      {
+        return (
+          console.log("if conditions")
+          
+        )
+      }
+      else{
+       return(
+        console.log("else condtions")
+        
+       ) 
+      }
+      
+     })
 
   };
 
@@ -235,7 +245,8 @@ function FlightForm() {
               <Autocomplete
                 disablePortal
                 id="combo-box-demo"
-                onChange={e => setFlyingFrom(e.target.value)}
+                value={flyingFrom}
+                onChange={(e , newValue) => setFlyingFrom(newValue)}
 
                 options={destidata.map((option) => option.fullplace)}
                 renderInput={(params) => <TextField {...params} label="City, Airport, Country" name='flying_from' variant='outlined' />}
@@ -243,6 +254,7 @@ function FlightForm() {
 
             </Grid>
             {/* second text field */}
+
             <Grid item xs={12} sm={6} lg={3}>
 
               <Grid>
@@ -251,7 +263,8 @@ function FlightForm() {
               <Autocomplete
                 disablePortal
                 id="combo-box-demo"
-                onChange={e => setFlyingTo(e.target.value)}
+                value={flyingTo}
+                onChange={(e , newValue) => setFlyingTo(newValue)}
 
                 options={destidata.map((option) => option.fullplace)}
                 renderInput={(params) => <TextField {...params} label="City, Airport, Country" name='flying_to' variant='outlined' />}
