@@ -1,0 +1,129 @@
+
+
+
+video {
+  
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+}
+
+.hero-container {
+  /* background: url('/images/im-2.jpg') center center/cover no-repeat; */
+
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+}
+
+
+.hero-container > h1 {
+  color: #fff;
+  font-size: 40px;
+  margin-top: -200px;
+  margin-right: 800px;
+}
+
+.hero-container > p {
+  margin-top: 8px;
+  color: #fff;
+  font-size: 32px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+    margin-right: 800px;
+}
+
+
+
+.fa-play-circle {
+  margin-left: 4px;
+}
+@media screen and (max-width: 960px) {
+  .hero-container > h1 {
+    font-size: 30px;
+    margin-top: 150px;
+    display: none;
+  }
+  .hero-container > p {
+    font-size: 30px;
+    display: none;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .hero-container > h1 {
+    font-size: 30px;
+    margin-top: 150px;
+    display: none;
+  }
+  .hero-container > p {
+    font-size: 30px;
+    display: none;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .hero-container > h1 {
+    font-size: 70px;
+    margin-top: -100px;
+
+  }
+
+
+  .hero-container {
+    background: url('/images/im-2.jpg') center center/cover no-repeat;
+
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-container > h1 {
+    font-size: 30px;
+    margin-top: 150px;
+    display: none;
+  }
+
+  .hero-container > p {
+    font-size: 30px;
+    display: none;
+  }
+  .hero-container {
+    background: url('/images/im-2.jpg') center center/cover no-repeat;
+
+    height: 180vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+  }
+
+  .btn-mobile {
+    display: block;
+    text-decoration: none;
+
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* this is a form section*/
+

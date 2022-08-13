@@ -1,0 +1,60 @@
+.navu{
+    display: flex;
+    width: 100%;
+  
+  }
+  .rContainer{
+      flex: 4;
+  }
+  
+  .container {
+    margin: 20px;
+    padding: 16px;
+    background-color: white;
+  }
+  .f-container p{
+    margin-left: 50px;
+    font-weight: 600;
+  }
+  .r-email-label{
+    margin-left: 80px;
+  }
+  .r-password-label{
+    margin-left: 40px;
+  }
+  .f-container input{
+    width: 200px;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #1b1f1d;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+    margin-left: 50px;
+    position: relative;
+    left:300px;
+  }
+  
+  .registerbtn:hover {
+    opacity: 2;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  

@@ -1,0 +1,75 @@
+.navL{
+    display: flex;
+   width: 100%;
+  
+  }
+  .lContainer{
+      flex: 4;
+  }
+  .destination-Container{
+    margin: 20px;
+    padding: 16px;
+    background-color: white;
+  }
+  
+  .destination-Container h1{
+   
+    margin-bottom: 50px;
+
+  }
+  .add-desti-form{
+
+    margin: 10px;
+  }
+  .add-desti-form input{
+
+    border-radius: 6px;
+    
+  }
+  
+  .a-label{
+    margin-right: 70px;
+    position: relative;
+    left: 40px;
+  }
+  .ac-label{
+    margin-left: 20px;
+  }
+  .city-label{
+    margin-right: 90px;
+    position: relative;
+    left: 50px;
+  }
+  .country-label{
+    margin-right: 20px;
+    margin-left: 40px;
+  }
+  .destination-Container input{
+    width: 300px;
+    height: 40px;
+    border-radius: 6px;
+    margin-left: 20px;
+
+  }
+  .add-desti-btn{
+    background-color: #1b1f1d;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+    margin-left: 50px;
+    position: relative;
+    left: 100px;
+   
+  }
+  .a-table-Container{
+    margin: 30px;
+  }
+  .delete-btn{
+    margin-top: 10px;
+    width: 50px;
+  }

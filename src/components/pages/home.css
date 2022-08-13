@@ -1,0 +1,133 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+.topnav{
+  
+    width: 100%;
+    background: url('/images/top_bar.png') center center/cover no-repeat ;
+    display: flex;
+    
+    height: 50px;
+    padding-top: 8px;
+    justify-content: space-between;
+    color: rgb(229, 226, 226);
+    
+  }
+  /* .pcontainer{
+   
+    border-bottom: 50px solid red;
+    border-right: 30px solid transparent;
+    height: 10px;
+    width: 300px;
+    border-left: 30px solide green;
+    
+    
+  } */
+  .phone{
+    
+    margin-right: 230px;
+    display: flex;
+    color: rgb(255, 255, 255);
+    font-family: "bahnschrift";
+  }
+  /* .econtainer{
+  
+    border-bottom: 50px solid red;
+    border-right: 30px solid transparent;
+    height: 10px;
+    width: 300px;
+    
+  } */
+  .email{
+    
+    display: flex;
+    margin-left: 30px;
+    color: rgb(255, 255, 255);
+    font-family: "bahnschrift";
+  }
+  .email a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: "bahnschrift";
+  }
+  .email a:hover {
+     color: rgb(0, 0, 0);
+     
+  }
+
+  .fb{
+    size: 20px;
+    height: 30px;
+    width: 20px;
+    margin-right: 20px;
+    color: green;
+    margin-left: 10px;
+  }
+  .insta{
+    size: 20px;
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+  }
+  .wts{
+    size: 20px;
+    height: 30px;
+    width: 30px;
+    margin-right: 50px;
+  }
+  .our_social{
+    display: flex;
+    margin-left: 10px;
+
+  }
+  .social-icons-top{
+    display: flex;
+    font-size: 20px;
+    margin-left: 40px;
+  }
+
+   .social-links a{
+    display: inline-block;
+    height: 37px;
+    width: 37px;
+    background-color: #ff3c00;
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+    margin-left: 7px;
+    
+  }
+  .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+  }
+  
+
+  /* .acontainer{
+   
+    background-color: rgb(194, 194, 194);
+    width: 25%;
+    margin-bottom: 5px;
+    
+    
+  }
+  .scontainer{
+   
+    background-color: rgb(2, 2, 2);
+    width: 25%;
+    margin-bottom: 5px;
+    
+    
+  } */
+  
+  @media screen and (max-width: 768px) {
+    .topnav{
+  
+      display: none;
+    }
+  
+  
+  }

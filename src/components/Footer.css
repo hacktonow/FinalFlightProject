@@ -1,0 +1,310 @@
+.bottom-bar-top{
+	height: 100px;
+	width: 100%;
+	
+	display: flex;
+	
+	
+}
+.bottom-left{
+	background-color: #525357;
+	width: 50%;
+	display: flex;
+    align-items: center;
+}
+.bottom-left h2 {
+	color: #fff;
+	
+	
+}
+.bottom-left p {
+	color: #fff;
+	
+	
+}
+
+.bottom-left .img img{
+	
+	size: 10px;
+	width: 50px;
+	height: 50px;
+	margin-left: 50px;
+	margin-right: 30px;
+}
+
+
+
+
+
+
+.bottom-right{
+	background-color: #4e5a79;
+	width: 50%;
+	display: flex;
+	align-items: center;
+}
+
+.bottom-bar img{
+	height: 100px;
+	width: 100%;
+    
+	
+      
+}
+.bottom-right .img img{
+	
+	size: 10px;
+	width: 50px;
+	height: 50px;
+	margin-left: 20px;
+	margin-right: 30px;
+}
+.bottom-right h2 {
+	color: #fff;
+	font-size: 20px;
+	
+}
+.bottom-right p {
+	color: #fff;
+	font-size: 15px;
+	
+}
+
+body{
+
+	line-height: 1.5;
+	font-family: 'Poppins', sans-serif;
+}
+*{
+  
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	
+		font-family: 'Poppins', sans-serif;
+	
+}
+.container{
+  
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+  width: 85;
+  margin: auto;
+	display: flex;
+flex-wrap: wrap;
+align-items: flex-start;
+justify-content: space-between;
+
+ 
+}
+ul{
+	list-style: none;
+}
+.footer{
+  background: url('/images/bottom-02.svg') center center/cover no-repeat ;
+  background-color: #313131;
+    padding: 70px 0;
+    
+    border-top-left-radius: 125;
+    font-size: 13px;
+    
+}
+
+.privacy_link{
+	text-decoration: none;
+	color: #ff3c00;
+	
+}
+.footer-col{
+   flex-basis: 25%;
+   padding: 10px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #c9c7c7;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #ff3c00;
+	height: 2px;
+	box-sizing: border-box;
+	width: 70px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #c9c7c7;
+	text-decoration: none;
+	font-weight: 300;
+	
+	display: block;
+	transition: all 0.3s ease;
+}
+
+.footer-col .card-icons{
+	
+	margin-top: 20px;
+}
+
+
+.footer-col ul li a:hover{
+	color: #fffafa;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: #ff3c00;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+.footer-col p{
+  color: #c9c7c7;
+  font-family: "arial";
+}
+.footer-col h3{
+  color: #a3a3a3;
+  font-family: "Swis721 BT";
+}
+.f-logo{
+ height: auto;
+ width: auto;
+ position: relative;
+ bottom: 50px;
+ font-size: 30px;
+ color: #ff3c00;
+
+}
+.f-email{
+  width: fit-content;
+  
+  margin: 10px 0;
+
+}
+
+
+
+
+hr{
+  width: 90%;
+  border: 0;
+  border-bottom: 1px solid #ff3c00;
+  margin: 20px auto;
+}
+.copyright{
+  text-align: center;
+  color: #ccc;
+}
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+.bottom-bar {
+	height: 60px;
+	width: 100%;  
+}
+.bottom-bar img{
+	height: 60px;
+	width: 100%;  
+}
+/* this section for footer topbar */
+.bottom-bar-top{
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+.bottom-left{
+	width: 100%;
+	margin-bottom: 2px;
+}
+
+.bottom-left h2 {
+	color: #fff;
+	font-size: 18px;
+	
+}
+.bottom-left p {
+	color: #fff;
+	font-size: 15px;
+	
+}
+
+.img{
+	height: 50px;
+}
+.bottom-right{
+	width: 100%;
+	
+
+}
+.bottom-right h2 {
+	color: #fff;
+	font-size: 18px;
+	
+}
+.bottom-right p {
+	color: #fff;
+	font-size: 15px;
+	
+}
+
+
+
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+.row{
+	flex-direction: column;
+	align-items: center;
+}
+.footer-col{
+   
+   align-items: center;
+   text-align: center;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left: 42%;
+	bottom: -10px;
+	background-color: #ff3c00;
+	height: 2px;
+	box-sizing: border-box;
+	width: 70px;
+}
+
+.f-email{
+	width: fit-content;
+	border-bottom: 1px solid #ccc;
+	margin-left: 35%;
+	align-content: center;
+  }
+
+
+}
+
+

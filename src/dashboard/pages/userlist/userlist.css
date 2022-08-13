@@ -1,0 +1,32 @@
+.navu{
+  display: flex;
+  width: 100%;
+
+}
+.uContainer{
+    flex: 4;
+}
+
+.userContainer{
+
+  margin: 20px;
+}
+.userContainer button{
+   height: 40px;
+   width: 150px;
+  font-size: 15px;
+  color: rgb(92, 79, 211);
+font-weight: 600;
+border: none;
+border-radius: 3px;
+}
+.tableContainer{
+  margin: 50px;
+}
+.edit-btn{
+  size: 20px;
+  color: black;
+}
+.delete-btn{
+  width: 50px;
+}

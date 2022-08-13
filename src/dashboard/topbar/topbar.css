@@ -1,0 +1,45 @@
+.topbar{
+
+ width: 100%;
+ height: 50px;
+ background-color: rgb(240, 240, 240);
+ position: sticky;
+ top: 0;
+ border-bottom: 0.5px solid rgb(151, 151, 151);
+ z-index: 999;
+}
+
+.topbarWrapper{
+
+
+    height: 100%;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    font-weight: bold;
+    font-size: 30px;
+    color: darkblue;
+    cursor: pointer;
+}
+
+.topbariconContainer{
+    margin-top: 5px;
+    cursor: pointer;
+    size: 5px;
+}
+.topbariconContainer button{
+    height: 35px;
+    width: 90px;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(54, 54, 168);
+
+}
+.topbariconContainer button:hover{
+    border-radius: 6px;
+    color: rgb(245, 49, 49);
+    border-color: rgb(245, 49, 49);
+}

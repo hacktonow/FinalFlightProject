@@ -1,0 +1,189 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+.holiday-to-img {
+    background-image: url('/images/holiday/holiday-top.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+   
+    height: 45vh;
+    width: 100%;
+    
+  }
+  .holiday-to-img h1{
+    font-size: 100px;
+    color: #fff;
+    padding: 100px;
+  }
+  .h-first-container{
+    margin: 5%;
+  }
+  .h-first-container h3{
+       
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 25px;
+    color: #ff3c00;
+
+  }
+  .h-first-container p{
+       
+    text-align: center;
+
+  }
+  .h-second-conatainer{
+    background-color: rgb(133, 133, 133);
+    height: 600px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .h-card-container{
+    display: flex;
+    justify-content: space-around;
+    
+  }
+
+  .first-card{
+    margin: 50px;
+    background-color: #fff;
+    height:490px;
+    width: 300px;
+    border-radius: 5px;
+  }
+  .card-image-1{
+    height: 120px;
+    width: 300px;
+    background: url('/images/holiday/card-img-1.jpg') center center/cover no-repeat;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .card-image-2{
+    height: 120px;
+    width: 300px;
+    background: url('/images/holiday/card.jpeg') center center/cover no-repeat;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .card-image-3{
+    height: 120px;
+    width: 300px;
+    background: url('/images/holiday/card-img-3.jpeg') center center/cover no-repeat;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .card-content{
+    height: 280px;
+    width: 300px;
+    background-color: rgb(252, 252, 252);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+  }
+  .card-content h4{
+    font-size: 20px;
+    text-align: center;
+    color: #ff3c00;
+    font-weight: bold;
+  }
+  .card-content h5{
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .card-content p{
+    text-align: center;
+  }
+.card-content button{
+
+  font-size: 20px;
+  color: #fff;
+  background-color: #ff3c00;
+  border-radius: 5px;
+  height: 35px;
+  width: 160px;
+  border: none;
+  position: relative;
+  left: 50px;
+  top: 10px;
+}
+  .h-third-container{
+    margin: 50px;
+  }
+  .h-third-container h4{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #ff3c00;
+  }
+.h-forth-container{
+
+  height: 300px;
+  width: 100%;
+  background-color: yellow;
+  margin-bottom: 50px;
+}
+.image-forth-container{
+  height: 300px;
+  width: 70%;
+  background: url('/images/holiday/card2.jpg') center center/cover no-repeat;
+ margin-left: 15%;
+}
+.image-forth-container h2{
+ position: relative;
+ top: 100px;
+ left: 170px;
+ color: #fff;;
+ 
+}
+.image-forth-container h5{
+  position: relative;
+ top: 110px;
+ left: 300px;
+ color: #fff;;
+}
+  @media screen and (max-width: 768px) {
+
+
+    .holiday-to-img h1{
+      font-size: 50px;
+      
+    }
+    .h-first-container h3{
+       
+      
+      font-size: 15px;
+      font-weight: 700;
+  
+    }
+    .h-card-container{
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .h-second-conatainer{
+      height: 1700px;
+    }
+    .desti {
+     
+      font-size: 50px;
+     
+    }
+    .image-forth-container h2{
+      position: relative;
+      top: 100px;
+      left: 20px;
+      font-size: 15px;
+       
+     }
+     .image-forth-container h5{
+       position: relative;
+      top: 110px;
+      left: 20px;
+      font-size: 12px;
+      
+     }
+
+  }

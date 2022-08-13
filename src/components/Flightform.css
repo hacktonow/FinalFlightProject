@@ -1,0 +1,49 @@
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-heading{
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    
+     position: fixed;
+    
+    justify-content: center;
+    align-items: center;
+  }
+  .modalContainer {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    position: relative;
+    bottom: 500px;
+    left: 200px;
+  }
+
+  .modalContainer .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
