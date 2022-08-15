@@ -557,10 +557,12 @@ function FlightForm() {
               </div>
               <DialogContent>
                <div className='cardContainer'>
+               <h3>Virgin Atlantic</h3>
                 <div className='flightname'>
-                  <p>Lahore-Allama Iqbal intl.</p>
+                
+                  <p>London, London Heathrow Arpt [LHR], United Kingdom	</p>
                   <hr/>
-                  <p1>Karachi-Allama Iqbal intl.</p1>
+                  <p1>Lagos, Murtala Muhammed Arpt [LOS], Nigeria</p1>
                  
                 </div>
                 <div className='timePrice'>
