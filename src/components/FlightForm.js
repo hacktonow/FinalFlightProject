@@ -20,6 +20,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import AllData from '../dashboard/data/AllData';
+import { DockSharp } from '@material-ui/icons';
 
 
 
@@ -166,27 +167,34 @@ function FlightForm() {
   const [open, setOpen] = React.useState(false);
   const [flightCards, setFlightCardsOpen] = React.useState(false);
 
+  const handleClickSecondOpen = (e) => {
+    // console.log('flyingTo, flyingFrom: ', flyingTo, flyingFrom);
+    e.preventDefault();
+    setFlightCardsOpen(false)
+    setOpen(true)
+  }
   const handleClickOpen = (e) => {
-    console.log('flyingTo, flyingFrom: ', flyingTo, flyingFrom);
+    // console.log('flyingTo, flyingFrom: ', flyingTo, flyingFrom);
     e.preventDefault();
     
-     flightsdata.map((doc, index) => {
+    setFlightCardsOpen(true)
+    //  flightsdata.map((doc, index) => {
       
-      if(doc.origin === flyingFrom && doc.desti === flyingTo)
-      {
-        return (
-          console.log("if conditions")
+    //   if(doc.origin === flyingFrom && doc.desti === flyingTo)
+    //   {
+    //     return (
+    //       console.log("if conditions")
           
-        )
-      }
-      else{
-       return(
-        setFlightCardsOpen(true)
+    //     )
+    //   }
+    //   else{
+    //    return(
+    //     setFlightCardsOpen(true)
         
-       ) 
-      }
+    //    ) 
+    //   }
       
-     })
+    //  })
 
   };
 
@@ -543,8 +551,50 @@ function FlightForm() {
 
             {/* this section flightcards */}
 
+           
+      
+      {flightCards && <div className="flightCardsBackground">
+     
+            <div className="flightCardsContainer">
+            <h3>Flights Information</h3>
+              <div className="flighttitleCloseBtn">
+                <button
+                  onClick={handleClose}
+                >
+                  X
+                </button>
+               
+              </div>
+              <DialogContent>
+              {flightsdata.map((doc, index) => {
+                return(
+               <div className='cardContainer'>
+                <div className='flightPrice'>
+               <h3>{doc.flightname}</h3>
+               <p3>Total Price:₤{doc.adult}</p3>
+               </div>
+                <div className='flightname'>
+                
+                  <p>{doc.origin}</p>
+                  <hr/>
+                  <p1>{doc.desti}</p1>
+                 
+                </div>
+                <div className='timePrice'>
+                <p2>{doc.fduration}</p2>
+               <Button onClick={handleClickSecondOpen}>Book</Button>
+                </div>
 
-          {flightCards && <div className="flightCardsBackground">
+               </div>
+
+)  })}
+               </DialogContent>
+            </div>
+             
+          </div>},
+      
+   
+          {/* {flightCards && <div className="flightCardsBackground">
             <div className="flightCardsContainer">
             <h3>Flights Information</h3>
               <div className="flighttitleCloseBtn">
@@ -557,17 +607,20 @@ function FlightForm() {
               </div>
               <DialogContent>
                <div className='cardContainer'>
+                <div className='flightPrice'>
                <h3>Virgin Atlantic</h3>
+               <p3>Total Price:₤593</p3>
+               </div>
                 <div className='flightname'>
                 
-                  <p>London, London Heathrow Arpt [LHR], United Kingdom	</p>
+                  <p>London, London Heathrow Arpt [LHR],<br/> United Kingdom	</p>
                   <hr/>
-                  <p1>Lagos, Murtala Muhammed Arpt [LOS], Nigeria</p1>
+                  <p1>Lagos, Murtala Muhammed Arpt [LOS],<br/> Nigeria</p1>
                  
                 </div>
                 <div className='timePrice'>
-                <p2>this section for time</p2>
-                <p3>this section for price</p3>
+                <p2>06 Hours 30 Min</p2>
+               <Button>Book</Button>
                 </div>
 
                </div>
@@ -575,7 +628,7 @@ function FlightForm() {
             
                </DialogContent>
             </div>
-          </div>}
+          </div>} */}
 
 
 

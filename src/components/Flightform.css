@@ -63,7 +63,7 @@
 
   .flightCardsContainer{
     width: 1000px;
-    height: 500px;
+    height: 800px;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -71,7 +71,7 @@
     flex-direction: column;
     padding: 25px;
     position: relative;
-    bottom: 500px;
+    bottom: 700px;
     left: 50px;
 
   }
@@ -97,14 +97,30 @@
   }
   .cardContainer{
     background-color:grey;
-   width: 700px;
+   width: 800px;
    height: 200px;
    border-radius: 6px;
-   margin-left: 80px;
+   margin-left: 50px;
   margin-top: 10px;
 
 
   }
+ .flightPrice{
+  display: flex;
+  justify-content: space-around;
+ }
+ .flightPrice h3{
+  position: relative;
+  left: 190px;
+ top: 50px;
+
+ }
+ .flightPrice p3{
+  position: relative;
+  left: 100px;
+  top: 20px;
+  font-weight: bold;
+ }
   .flightname{
     display: flex;
    
@@ -120,12 +136,15 @@
     position: relative;
     top: 60px;
     left: 20px;
+    font-size: 15px;
+    font-weight: bold;
   }
   .flightname p1{
     position: relative;
     top: 60px;
     right: 20px;
-   
+    font-size: 15px;
+    font-weight: bold;
   }
   .timePrice{
     margin-top: 10px;
@@ -135,6 +154,18 @@
     top: 50px;
   }
   .timePrice p2{
+   
     position: relative;
-    right: 50px;
+    bottom: 20px;
+    left: 130px;
+    font-weight: bold;
+  }
+  .timePrice Button{
+    position: relative;
+    left: 150px;
+    top: 10px;
+    border: solid orange;
+    background-color: wheat;
+    font-weight: bold ;
+
   }
