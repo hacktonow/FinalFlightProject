@@ -47,3 +47,94 @@
     font-size: 25px;
     cursor: pointer;
   }
+
+  .flightCardsBackground{
+    width: 100vw;
+    height: 100vh;
+    
+     position: fixed;
+    
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  
+
+  .flightCardsContainer{
+    width: 1000px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    position: relative;
+    bottom: 500px;
+    left: 50px;
+
+  }
+  .flightCardsContainer h3{
+
+    text-align: center  ;
+  }
+
+  .flighttitleCloseBtn{
+
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    bottom: 35px;
+   
+
+  }
+  .flighttitleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  .cardContainer{
+    background-color:grey;
+   width: 700px;
+   height: 200px;
+   border-radius: 6px;
+   margin-left: 80px;
+  margin-top: 10px;
+
+
+  }
+  .flightname{
+    display: flex;
+   
+  }
+  .flightname hr{
+    width: 200px;
+    position: relative;
+
+    top: 50px;
+    
+  }
+  .flightname p{
+    position: relative;
+    top: 60px;
+    left: 20px;
+  }
+  .flightname p1{
+    position: relative;
+    top: 60px;
+    right: 20px;
+   
+  }
+  .timePrice{
+    margin-top: 10px;
+    display: flex;
+    justify-content:space-evenly;
+    position: relative;
+    top: 50px;
+  }
+  .timePrice p2{
+    position: relative;
+    right: 50px;
+  }
