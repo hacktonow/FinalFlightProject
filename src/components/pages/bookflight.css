@@ -1,0 +1,16 @@
+.bookflight-Container
+{
+    background-image: url('/images/flights/top-bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40vh;
+    width: 100%;
+}
+.bookflight-Container h1{
+    color: #fff;
+    font-size: 80px;
+   position: relative;
+   top: 60px;
+    
+  }

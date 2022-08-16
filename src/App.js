@@ -7,7 +7,7 @@ import Products from './components/pages/Flights';
 import SignUp from './components/pages/Holidays';
 import ContactUs from './components/pages/ContactUs';
 import Africa from './components/pages/Africa';
-import America from './components/pages/America';
+import BookFlight from './components/pages/BookFlight';
 import Asia from './components/pages/Asia';
 import Europe from './components/pages/Europe';
 import FarEast from './components/pages/FarEast';
@@ -53,7 +53,7 @@ function App() {
           <Route path='/Holidays' element={<SignUp/>} />
           <Route path='/contact-us' element={<ContactUs/>} />
           <Route path='/africa' element={<Africa/>} />
-          <Route path='/america' element={<America/>} />
+          <Route path='/book-flight' element={<BookFlight/>} />
           <Route path='/europe' element={<Europe/>} />
           <Route path='/asia' element={<Asia/>} />
           <Route path='/far_east' element={<FarEast/>} />

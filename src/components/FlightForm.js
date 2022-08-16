@@ -100,6 +100,10 @@ function FlightForm() {
   //this section for geting all data of flights
 
   const [flightsdata, setflightsData] = useState([]);
+  
+    
+
+
 
   useEffect(() => {
     getFlight();
@@ -166,7 +170,7 @@ function FlightForm() {
   //this section for second form
   const [open, setOpen] = React.useState(false);
   const [flightCards, setFlightCardsOpen] = React.useState(false);
-
+  const updatedData = [];
   const handleClickSecondOpen = (e) => {
     // console.log('flyingTo, flyingFrom: ', flyingTo, flyingFrom);
     e.preventDefault();
@@ -178,6 +182,13 @@ function FlightForm() {
     e.preventDefault();
     
     setFlightCardsOpen(true)
+    const updatedData = flightsdata.filter((curData) => {
+      return curData.origin === flyingTo;
+    })
+    setflightsData(updatedData);
+
+     console.log(updatedData)
+
     //  flightsdata.map((doc, index) => {
       
     //   if(doc.origin === flyingFrom && doc.desti === flyingTo)
@@ -566,7 +577,7 @@ function FlightForm() {
                
               </div>
               <DialogContent>
-              {flightsdata.map((doc, index) => {
+              {updatedData.map((doc, index) => {
                 return(
                <div className='cardContainer'>
                 <div className='flightPrice'>
