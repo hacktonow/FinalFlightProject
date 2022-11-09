@@ -1,9 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
-import { Grid, TextField, Button, makeStyles } from "@material-ui/core";
+import { Grid, TextField, Button, makeStyles} from "@material-ui/core";
 
-
+import { Link,  useNavigate } from 'react-router-dom';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 // import Autocomplete from '@mui/material/Autocomplete';
 import './Flightform.css'
 import Stack from '@mui/material/Stack';
@@ -11,7 +12,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import Autocomplete from '@mui/material/Autocomplete';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import Dialog from '@mui/material/Dialog';
+//import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 // import DialogContentText from '@mui/material/DialogContentText';
@@ -20,7 +21,12 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import AllData from '../dashboard/data/AllData';
-import { DockSharp } from '@material-ui/icons';
+//import { DockSharp } from '@material-ui/icons';
+//import BookFlight from './pages/BookFlight';
+//import { id } from 'date-fns/locale';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+//import { TryOutlined } from '@mui/icons-material';
 
 
 
@@ -31,11 +37,12 @@ const useStyles = makeStyles({
     backgroundColor: '#818582',
     color: "black",
 
-    fontSize: 20,
+    fontSize: 15,
+    fontWeight:"bold",
     height: 50,
-    marginTop: 30,
+    marginTop: 35,
     position: 'relative',
-    right: '-10px',
+    right: '-60px',
     border: '1px solid black',
 
     '&:hover': {
@@ -63,12 +70,15 @@ const flightg = ['0', '01', '02', '03', '04', '05', '06', '07', '08'];
 
 function FlightForm() {
 
+
+  const navigate = useNavigate();
+
   // this section for date
-  const [datevalue, setdate] = React.useState(new Date('2022-08-18T21:11:54'));
+  const [datevalue, setdate] = React.useState(new Date('mm/dd/yy'));
   const dateChange = (newValue) => {
     setdate(newValue);
   };
-  const [datevalue2, setdate2] = React.useState(new Date('2022-08-19T21:11:54'));
+  const [datevalue2, setdate2] = React.useState(new Date('mm/dd/yy'));
   const dateChange2 = (newValue2) => {
     setdate2(newValue2);
   };
@@ -85,23 +95,27 @@ function FlightForm() {
   //  const [inputValued, setInputValued] = React.useState('');
 
   //  this section for Adult
-  const [valuee, setValuee] = React.useState(flighte[0]);
+  const [adult, setAdult] = React.useState(flighte[0]);
   const [inputValuee, setInputValuee] = React.useState('');
 
   {/* this section for Child */ }
-  const [valuef, setValuef] = React.useState(flightf[0]);
+  const [child, setChild] = React.useState(flightf[0]);
   const [inputValuef, setInputValuef] = React.useState('');
 
   //this section ofr onfant
-  const [valueg, setValueg] = React.useState(flightg[0]);
+  const [infant, setInfant] = React.useState(flightg[0]);
   const [inputValueg, setInputValueg] = React.useState('');
 
 
   //this section for geting all data of flights
 
   const [flightsdata, setflightsData] = useState([]);
-  
-    
+  const [flyingFrom, setFlyingFrom] = React.useState('');
+  const [inputValue, setInputValue] = React.useState('');
+  const [flyingTo, setFlyingTo] = React.useState("");
+   
+  // console.log("flyingfrom:",datevalue)
+  // console.log("inputvalue:",datevalue2)
 
 
 
@@ -111,7 +125,7 @@ function FlightForm() {
 
   const getFlight = async () => {
     const data = await AllData.getAllFlights();
-   
+
     setflightsData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -125,7 +139,7 @@ function FlightForm() {
 
   const getDesti = async () => {
     const data = await AllData.getAllDesti();
-    
+
     setdestiData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -136,11 +150,12 @@ function FlightForm() {
 
   useEffect(() => {
     getAirline();
+
   }, []);
 
   const getAirline = async () => {
     const data = await AllData.getAllAirlines();
-    
+
     setairlinesData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -154,77 +169,76 @@ function FlightForm() {
 
   const getClass = async () => {
     const data = await AllData.getAllClasses();
-    
+
     setclassesData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
+
 
 
   //this section for useStyle
 
   const classes = useStyles()
 
-  const [flyingFrom, setFlyingFrom] = React.useState("");
-  const [flyingTo, setFlyingTo] = React.useState("");
+  
 
-   console.log(flightsdata.origin)
+
   //this section for second form
   const [open, setOpen] = React.useState(false);
+  const[openBackdrop, setOpenBackdrop] = useState(false);
   const [flightCards, setFlightCardsOpen] = React.useState(false);
-  const updatedData = [];
+
   const handleClickSecondOpen = (e) => {
-    // console.log('flyingTo, flyingFrom: ', flyingTo, flyingFrom);
+
     e.preventDefault();
     setFlightCardsOpen(false)
     setOpen(true)
+
   }
   const handleClickOpen = (e) => {
-    // console.log('flyingTo, flyingFrom: ', flyingTo, flyingFrom);
+
     e.preventDefault();
     
-    setFlightCardsOpen(true)
+    setOpenBackdrop(true)
+
     const updatedData = flightsdata.filter((curData) => {
-      return curData.origin === flyingTo;
+      return curData.origin == flyingFrom && curData.desti == flyingTo;
+     
+
     })
-    setflightsData(updatedData);
-
-     console.log(updatedData)
-
-    //  flightsdata.map((doc, index) => {
+    setTimeout(()=> {
+      setOpenBackdrop(false)
+      setflightsData(updatedData)
+    setFlightCardsOpen(true)
       
-    //   if(doc.origin === flyingFrom && doc.desti === flyingTo)
-    //   {
-    //     return (
-    //       console.log("if conditions")
-          
-    //     )
-    //   }
-    //   else{
-    //    return(
-    //     setFlightCardsOpen(true)
-        
-    //    ) 
-    //   }
-      
-    //  })
-
+    }, 2000)
+    
   };
 
   const handleClose = () => {
     setOpen(false);
-    setFlightCardsOpen(false)
+    setFlightCardsOpen(false);
+    setFlyingFrom("");
+    setFlyingTo("");
+    setflightsData("");
+
   };
   //this section for  email sending
-  const form = useRef();
+  
+    const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
     handleClose();
-    handleClicksnake();
+    
+      navigate('/book-flight',{state:{From:flyingFrom, To: flyingTo, flightsdata: flightsdata}})
+    
+   
+
     emailjs.sendForm('service_irhbjqr', 'template_fhq54pi', form.current, 'jb6ozAysKHkokdjXV')
       .then((result) => {
 
-        console.log(result.text);
+
       }, (error) => {
-        console.log(error.text);
+
       });
   };
 
@@ -245,20 +259,19 @@ function FlightForm() {
 
   return (
 
-    //form 
+    //form
     <>
       <form ref={form} onSubmit={sendEmail}>
         <React.Fragment>
 
           <h3 className='form-heading'> Book Flight</h3>
-
-
+          
 
           {/* container */}
           <Grid container spacing={2} >
 
             {/* first text field */}
-            <Grid item xs={12} sm={6} lg={3}>
+            <Grid item xs={12} sm={3} lg={3}>
 
               <Grid>
                 <label>Flying From</label>
@@ -267,16 +280,15 @@ function FlightForm() {
                 disablePortal
                 id="combo-box-demo"
                 value={flyingFrom}
-                onChange={(e , newValue) => setFlyingFrom(newValue)}
-
-                options={destidata.map((option) => option.fullplace)}
-                renderInput={(params) => <TextField {...params} label="City, Airport, Country" name='flying_from' variant='outlined' />}
+                onChange={(e, newValue) => setFlyingFrom(newValue)}
+                options={destidata.map((option) => option.fullplace.toString())}
+                renderInput={(params) => <TextField {...params} 
+                label="City, Airport, Country" name='flying_from' variant='outlined' />}
               />
-
             </Grid>
             {/* second text field */}
 
-            <Grid item xs={12} sm={6} lg={3}>
+            <Grid item xs={12} sm={3} lg={3}>
 
               <Grid>
                 <label>Flying To</label>
@@ -285,26 +297,28 @@ function FlightForm() {
                 disablePortal
                 id="combo-box-demo"
                 value={flyingTo}
-                onChange={(e , newValue) => setFlyingTo(newValue)}
+                onChange={(e, newValue) => setFlyingTo(newValue)}
 
                 options={destidata.map((option) => option.fullplace)}
                 renderInput={(params) => <TextField {...params} label="City, Airport, Country" name='flying_to' variant='outlined' />}
               />
             </Grid>
             {/* Departure select date */}
-            <Grid item xs={12} sm={3} lg={2}>
+            <Grid item xs={12} sm={2} lg={2}>
               <label>
                 Departure
               </label>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <Stack spacing={3}>
-                  <DesktopDatePicker
+                  <MobileDatePicker
                     variant="outlined"
-                    inputFormat="MM/dd/yyyy"
+                    
+                    label="mm/dd/yyyy"
+                    // inputFormat="MM/dd/yyyy"
                     value={datevalue}
                     onChange={dateChange}
 
-                    renderInput={(params) => <TextField {...params} name="departure_date" variant='outlined' />}
+                    renderInput={(params) => <TextField {...params}   name="departure_date" variant='outlined' />}
                   />
 
 
@@ -316,16 +330,16 @@ function FlightForm() {
             {/* Returning select date */}
 
 
-            <Grid item xs={12} sm={3} lg={2}>
+            <Grid item xs={12} sm={2} lg={2}>
               <label>
                 Returning
               </label>
 
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <Stack spacing={3}>
-                  <DesktopDatePicker
+                  <MobileDatePicker
 
-                    inputFormat="MM/dd/yyyy"
+                  label="mm/dd/yyyy"
                     value={datevalue2}
                     onChange={dateChange2}
 
@@ -341,7 +355,7 @@ function FlightForm() {
 
             {/* Direct or indirect flight field */}
 
-            <Grid item xs={12} sm={4} lg={2}>
+            {/* <Grid item xs={12} sm={4} lg={2}>
               <Grid>
                 <label>Direct Flight</label>
               </Grid>
@@ -364,7 +378,7 @@ function FlightForm() {
               />
 
 
-            </Grid>
+            </Grid> */}
 
             {/* Select Flight */}
 
@@ -375,14 +389,7 @@ function FlightForm() {
               </Grid>
 
               <Autocomplete
-                // value={valuec}
-                // onChange={(event, newValue) => {
-                //   setValuec(newValue);
-                // }}
-                // inputValue={inputValuec}
-                // onInputChange={(event, newInputValue) => {
-                //   setInputValuec(newInputValue);
-                // }}
+                
                 id="controllable-states-demo"
                 options={airlinesdata.map((option) => option.airlines)}
 
@@ -393,20 +400,13 @@ function FlightForm() {
             {/* Select Flight Class */}
 
 
-            <Grid item xs={12} sm={5} lg={3}>
+            <Grid item xs={12} sm={3} lg={3}>
               <Grid>
                 <label>Class</label>
               </Grid>
 
               <Autocomplete
-                // value={valued}
-                // onChange={(event, newValue) => {
-                //   setValued(newValue);
-                // }}
-                // inputValue={inputValued}
-                // onInputChange={(event, newInputValue) => {
-                //   setInputValued(newInputValue);
-                // }}
+                
                 id="controllable-states-demo"
                 options={classesdata.map((option) => option.classes)}
 
@@ -426,14 +426,11 @@ function FlightForm() {
               </Grid>
 
               <Autocomplete
-                value={valuee}
+                value={adult}
                 onChange={(event, newValue) => {
-                  setValuee(newValue);
+                  setAdult(newValue);
                 }}
-                inputValue={inputValuee}
-                onInputChange={(event, newInputValue) => {
-                  setInputValuee(newInputValue);
-                }}
+
                 id="controllable-states-demo"
                 options={flighte}
 
@@ -449,14 +446,11 @@ function FlightForm() {
               </Grid>
 
               <Autocomplete
-                value={valuef}
+                value={child}
                 onChange={(event, newValue) => {
-                  setValuef(newValue);
+                  setChild(newValue);
                 }}
-                inputValue={inputValuef}
-                onInputChange={(event, newInputValue) => {
-                  setInputValuef(newInputValue);
-                }}
+
                 id="controllable-states-demo"
                 options={flightf}
 
@@ -471,22 +465,20 @@ function FlightForm() {
               </Grid>
 
               <Autocomplete
-                value={valueg}
+                value={infant}
                 onChange={(event, newValue) => {
-                  setValueg(newValue);
+                  setInfant(newValue);
                 }}
-                inputValue={inputValueg}
-                onInputChange={(event, newInputValue) => {
-                  setInputValueg(newInputValue);
-                }}
+                
                 id="controllable-states-demo"
                 options={flightg}
 
-                renderInput={(params) => <TextField {...params} name="infant" variant='outlined' />}
+                renderInput={(params) => <TextField {...params} name="infant" variant='outlined'  />}
               />
             </Grid>
-
-            <Button className={classes.btn} onClick={handleClickOpen}>Search Flight</Button>
+           
+            <Button className={classes.btn} onClick={handleClickOpen}> Search Flight</Button>
+            
 
           </Grid>
 
@@ -504,7 +496,7 @@ function FlightForm() {
                   X
                 </button>
               </div>
-              <DialogTitle>Fill Data</DialogTitle>
+              <DialogTitle>Please Provide Data</DialogTitle>
 
               <DialogContent>
 
@@ -553,97 +545,103 @@ function FlightForm() {
               <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
 
-                <Button type="submit" value="Send" onClick={sendEmail}>Submit</Button>
-                {/* <Button >Submit</Button> */}
+                <button onClick={sendEmail} ><Link to="/book-flight" state={{From:flyingFrom, To: flyingTo, flightsdata: flightsdata }}   > send</Link> </button>
+                
               </DialogActions>
             </div>
           </div>}
 
+          <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={openBackdrop}
+                
+              >
+                <CircularProgress color="inherit" />
+              </Backdrop>
 
-            {/* this section flightcards */}
+          {/* this section flightcards */}
 
+         
+
+          {flightCards && flightsdata.length !== 0 &&
+      
+          navigate('/book-flight' ,{state:{From:flyingFrom, To: flyingTo, flightsdata: flightsdata,setOpen:open, Adult:adult, Child:child, Infant:infant, Fromdate:datevalue, Todate:datevalue2 }})
+        
+    
+         
+          },
+          {flightCards && flightsdata.length === 0 &&
            
-      
-      {flightCards && <div className="flightCardsBackground">
-     
-            <div className="flightCardsContainer">
-            <h3>Flights Information</h3>
-              <div className="flighttitleCloseBtn">
+          <div className="flightCardsBackground">
+          <div className="modalBackground">
+            <div className="modalContainer">
+              <div className="titleCloseBtn">
                 <button
                   onClick={handleClose}
                 >
                   X
                 </button>
-               
               </div>
+              <DialogTitle>Fill Data</DialogTitle>
+
               <DialogContent>
-              {updatedData.map((doc, index) => {
-                return(
-               <div className='cardContainer'>
-                <div className='flightPrice'>
-               <h3>{doc.flightname}</h3>
-               <p3>Total Price:₤{doc.adult}</p3>
-               </div>
-                <div className='flightname'>
-                
-                  <p>{doc.origin}</p>
-                  <hr/>
-                  <p1>{doc.desti}</p1>
-                 
-                </div>
-                <div className='timePrice'>
-                <p2>{doc.fduration}</p2>
-               <Button onClick={handleClickSecondOpen}>Book</Button>
-                </div>
 
-               </div>
+                  <TextField
+                  
+                    required
+                    autoFocus
+                    margin="dense"
+                    name="c_name"
+                    label="Full Name"
+                    type="text"
+                    fullWidth
+                    variant="outlined"
+                  />
+                  <TextField
 
-)  })}
-               </DialogContent>
-            </div>
-             
-          </div>},
-      
-   
-          {/* {flightCards && <div className="flightCardsBackground">
-            <div className="flightCardsContainer">
-            <h3>Flights Information</h3>
-              <div className="flighttitleCloseBtn">
-                <button
-                  onClick={handleClose}
-                >
-                  X
-                </button>
-               
+                    margin="dense"
+                    label="Email Address"
+                    type="text"
+                    name="c_email"
+                    fullWidth
+                    variant="outlined"
+                  />
+                  <TextField
+
+                    margin="dense"
+                    id="name"
+                    name='c_number'
+                    label="Contact NO"
+                    type="number"
+                    fullWidth
+                    variant="outlined"
+                  />
+                  <TextField
+
+                    margin="dense"
+                    name="c_message"
+                    label="Message"
+                    type="text"
+                    multiline
+                    rows={4}
+                    fullWidth
+                    variant="outlined"
+                    required
+                  />
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>Cancel</Button>
+
+                  <Button type="submit" value="Send" onClick={sendEmail}>Submit</Button>
+                  
+                </DialogActions>
               </div>
-              <DialogContent>
-               <div className='cardContainer'>
-                <div className='flightPrice'>
-               <h3>Virgin Atlantic</h3>
-               <p3>Total Price:₤593</p3>
-               </div>
-                <div className='flightname'>
-                
-                  <p>London, London Heathrow Arpt [LHR],<br/> United Kingdom	</p>
-                  <hr/>
-                  <p1>Lagos, Murtala Muhammed Arpt [LOS],<br/> Nigeria</p1>
-                 
-                </div>
-                <div className='timePrice'>
-                <p2>06 Hours 30 Min</p2>
-               <Button>Book</Button>
-                </div>
-
-               </div>
-
-            
-               </DialogContent>
             </div>
-          </div>} */}
 
-
-
+          </div>  }
+         
         </React.Fragment>
+        
       </form>
       {/* this section for snakbar */}
 

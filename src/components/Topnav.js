@@ -11,7 +11,7 @@ export const Topnav = () => {
       <div className='econtainer'>
       <h3 className='email'>
       <Email/>
-     <a className='email a' href='mailto:info@theblissflight.co.uk' >info@theblissflight.co.uk</a> </h3>
+     <a className='email a' href='mailto:info@bliss-flights.co.uk' >info@bliss-flights.co.uk</a> </h3>
       </div>
     
       <div className='pcontainer'>
@@ -25,13 +25,13 @@ export const Topnav = () => {
       </div>
       <div className='scontainer'>
       
-      <div class='social-icons-top'>
+      <div className='social-icons-top'>
       
-      <div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <div className="social-links">
+  	 				<a href="#"><i className="fab fa-facebook-f"></i></a>
+  	 				<a href="#"><i className="fab fa-twitter"></i></a>
+  	 				<a href="#"><i className="fab fa-instagram"></i></a>
+  	 				<a href="#"><i className="fab fa-linkedin-in"></i></a>
   	 			</div>
           </div>
       </div>

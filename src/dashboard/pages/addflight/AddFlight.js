@@ -1,27 +1,51 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useRef} from 'react'
 import { Sidebar } from '../../sidebar/Sidebar';
 import Topbar from '../../topbar/Topbar';
 import './addflight.css';
 import AllData from '../../data/AllData';
 import {useNavigate} from 'react-router-dom';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
+const storage = getStorage();
 
 export const AddFlight = () => {
-  
-  const [origin, setOrigin] = useState("");
-  const [desti, setDesti] = useState("");
-  const [airline, setAirline] = useState("");
-  const [classes, setClasses] = useState("");
-  const [adult, setAdult] = useState("");
-  const [child, setChild] = useState("");
-  const [infant, setInfant] = useState("");
-  const [fduration, setFduration] = useState("");
+  const[flightsdata, setFlightsData] = useState({
+    origin:"",
+    desti:"",
+    airline:"",
+    classes:"",
+    adult:"",
+    child:"",
+    infant:"",
+    fduration:"",
+    fstop:"",
+    img:"",
+
+  });
+  const [file, setFile] = useState("")
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [perc, setPerc] = useState (null);
+  
+
+
+
+// ths section for haninput
+let name,value;
+const handelChange = (e) =>{
+   name= e.target.name;
+   value = e.target.value;
+   setFlightsData({...flightsdata,[name]: value})
+}
+ 
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+   
+    const  {origin, desti, airline, classes, adult, child, infant, fduration, fstop, img} = flightsdata;
     setError("");
-    if (origin === "" || desti === "" || airline === "" || classes === "" || adult === "" || child === "" || infant === "" || fduration === "") {
+    if (origin === "" || desti === "" || airline === "" ||  classes === "" || adult === "" || child === "" || infant === "" || fduration === "" || img === ""  ) {
       setError({ error: true, msg: "All fields are mandatory!" })
       console.log(error)
       
@@ -37,35 +61,25 @@ export const AddFlight = () => {
       child,
       infant,
       fduration,
-      
+      fstop,
+      img,
     };
    
-   
-   
-   
+    
     try {
       
         await AllData.addFlights(newFlight);
-        navigate("/admin");
+        // navigate("/admin");
+        
         setError({ error: false, msg: "Added successfully!" });
       console.log(error)
     } catch (err) {
       setError({ error: true, msg: err.message });
     }
 
-    origin("");
-    desti("");
-    airline("");
-    classes("");
-    adult("");
-    child("");
-    infant("");
-    fduration("");
+   
    
   };
-
-
-
 
   //this section for distinations
 
@@ -77,7 +91,7 @@ export const AddFlight = () => {
 
   const getDesti = async () => {
     const data = await AllData.getAllDesti();
-    console.log(data.docs);
+    
     setdestiData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -93,7 +107,7 @@ export const AddFlight = () => {
   
   const getAirline = async () => {
     const data = await AllData.getAllAirlines();
-    console.log(data.docs);
+    
     setairlinesData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -110,6 +124,48 @@ export const AddFlight = () => {
     setclassesData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
     
+
+
+
+//this is for uploading image
+//   useEffect(()=>{
+//         const uploadFile = () =>{
+//           const name = new Date().getTime() +file.name
+//           const storageRef = ref(storage, file.name);
+//           console.log(name)
+//           const uploadTask = uploadBytesResumable(storageRef, file);
+
+
+// uploadTask.on('state_changed',
+//   (snapshot) => {
+//     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+//     console.log('Upload is ' + progress + '% done');
+//     setPerc(progress)
+//     switch (snapshot.state) {
+//       case 'paused':
+//         console.log('Upload is paused');
+//         break;
+//       case 'running':
+//         console.log('Upload is running');
+//         break;
+//     }
+//   },
+//   (error) => {
+//     console.log(error)
+//   },
+//   () => {
+//     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+//       setFlightsData((prev)=> ({...prev, imgURL:downloadURL}))
+//       console.log('File available at', downloadURL);
+//     });
+//   }
+// );
+
+//         };
+//         file && uploadFile();
+//   }, [file] );
+
+//   console.log(flightsdata)
   return (
     <>
    <Topbar/>
@@ -123,7 +179,7 @@ export const AddFlight = () => {
    <form onSubmit={handleSubmit} >
   
     <label className='s-origin-label' for='sorigin'><b>Origin:</b></label>
-    <select  className='s-origin' name="origin" form="addf-form-Container" onChange={(e) => setOrigin(e.target.value)}>
+    <select  className='s-origin' value={flightsdata.origin} name="origin" form="addf-form-Container" onChange={handelChange}>
    
     <option value="selectairline">Select Origin</option>
     {destidata.map(ddata =>
@@ -132,7 +188,7 @@ export const AddFlight = () => {
     
     </select>
     <label className='s-destination-label' for='sairline'><b>Destination:</b></label>
-    <select className='s-destination' id="destination" name="s-destination-list" form="addf-form-Container"  onChange={(e) => setDesti(e.target.value)} >
+    <select className='s-destination' id="destination" value={flightsdata.desti} name="desti" form="addf-form-Container"  onChange={handelChange} >
     
     <option value="selectdestination">Select Destination</option>
     {destidata.map(ddata =>
@@ -142,17 +198,17 @@ export const AddFlight = () => {
     </select>
     <br/><br/>
     <label className='s-airline-label' for='sairline'><b>Airline:</b></label>
-    <select className='s-airline' id="airlines" name="airlinelist" form="addf-form-Container" onChange={(e) => setAirline(e.target.value)}>
+    <select className='s-airline' id="airlines" value={flightsdata.airline} name="airline" form="addf-form-Container" onChange={handelChange}>
    
     <option >Select Airline</option>
-    {airlinesdata.map(adata =>
-      <option key={adata.key} value={adata.key}>{adata.airlines}</option>
+    {airlinesdata.map(ddata =>
+      <option key={ddata.key} value={ddata.key}>{ddata.airlines}</option>
     )};
    
     </select>
     
 <label className='s-airline-c-label' for='s-airline-c'><b>Airline Class:</b></label>
-    <select className='s-airline-c' id="airline-class" name="class-list" form="addf-form-Container"  onChange={(e) => setClasses(e.target.value)}>
+    <select className='s-airline-c' id="airline-class" value={flightsdata.classes} name="classes" form="addf-form-Container"  onChange={handelChange}>
     
     <option value="select-airline-class">Select Class</option>
     {classesdata.map(cdata =>
@@ -162,22 +218,25 @@ export const AddFlight = () => {
     </select>
     <br/><br/>
     <label className='i-adultfare-label' for='sadult-fare'><b>Adult Fare:</b></label>
-    <input className='i-adultfare' type="text"  name="adult-fare" placeholder='Adult Fare' onChange={(e) => setAdult(e.target.value)}></input>
+    <input className='i-adultfare' type="text"  value={flightsdata.adult} name="adult" placeholder='Adult Fare' onChange={handelChange}></input>
 
     <label className='i-childfare-label' for='schild-fare'><b>Child Fare:</b></label>
-    <input className='i-childfare' type="text"  name="child-fare" placeholder='Child Fare' onChange={(e) => setChild(e.target.value)}></input>
+    <input className='i-childfare' type="text" value={flightsdata.child}  name="child"  placeholder='Child Fare' onChange={handelChange}></input>
     <br/><br/>
     <label className='i-infantfare-label' for='sinfantfare'><b>Infant Fare:</b></label>
-    <input  className='i-infantfare' type="text"  name="infant-fare" placeholder='Infant Fare' onChange={(e) => setInfant(e.target.value)}></input>
+    <input  className='i-infantfare' type="text" value={flightsdata.infant} name="infant" placeholder='Infant Fare' onChange={handelChange}></input>
 
     <label className='i-flightduration-label' for='sflightduration'><b>Flight Duration:</b></label>
-    <input className='i-flightduration' type="text"  name="flight-duration" placeholder='Flight Duration' onChange={(e) => setFduration(e.target.value)}></input>
+    <input className='i-flightduration' type="text" value={flightsdata.fduration}  name="fduration" placeholder='Flight Duration' onChange={handelChange}></input>
     <br/><br/>
-    {/* <label className='fare-valid-from-label' for='sairline'><b>Fare Valid Form:</b></label>
-    <select className='fare-valid-from' id="airlines" name="airlinelist" form="addf-form-Container">
-    <option value="selectairline">Fare Valid Form</option>
-    </select>
-    <label className='fare-valid-till-label' for='sairline'><b>Fare Valid Till:</b></label>
+    <label className='i-flightstop-label' for='sflightstop'><b>Stop:</b></label>
+    <input className='i-flightstop' type="text" value={flightsdata.fstop} name="fstop" placeholder='Enter Stop' onChange={handelChange}></input>
+   
+    
+  <label className='airline-logo-lable' for="img"><b>Airline Logo:</b></label>
+  <input className='i-airline-logo' type="text" value={flightsdata.img} name="img" placeholder='Insert Url' onChange={handelChange}></input>
+
+     {/*  <label className='fare-valid-till-label' for='sairline'><b>Fare Valid Till:</b></label>
     <select className='fare-valid-till' id="airlines" name="airlinelist" form="addf-form-Container">
     <option value="selectairline">Fare Valid Till</option>
     </select>

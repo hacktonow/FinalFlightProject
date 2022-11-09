@@ -24,7 +24,7 @@ function Cards() {
       <div className='card-middle-left'>
       <h2>Why our customers love Us?</h2>
       <p>
-      Presenting the most dependable. Travel solutions from London to the world over. We are trusted widely by people. Our<br/>
+      Presenting the most dependable travel solutions from London to the world over. We are trusted widely by people. Our<br/>
 customers can completely depend on us for an end to end travel solutions, while all they need to do is pack their bags and arrive in style!
 
       </p>
@@ -39,14 +39,14 @@ customers can completely depend on us for an end to end travel solutions, while 
       <br/>
       < CheckCircleIcon className='icons'/>
       
-      <p1> Exlusive deals for hundreds of destinations</p1>
+      <p1> Exclusive  deals for hundreds of destinations</p1>
       <br/>
       < CheckCircleIcon className='icons'/>
       <p1> 24/7 assistance by Travel Experts</p1>
       
       <br/>
       < CheckCircleIcon className='icons'/>
-      <p1> Low Deposites</p1>
+      <p1> Low Deposits</p1>
       </div>
           </div>
           <div className='card-middle-right'>
@@ -96,7 +96,7 @@ customers can completely depend on us for an end to end travel solutions, while 
       <img src='/images/man.png' height={50} width={50}/>
       </div>
       <div className='content'>
-        <h3>•	BExpert Travel Advice
+        <h3>•	Expert Travel Advice
 </h3>
         <p>As one of the country’s leading holiday companies, we provide holidays worth getting excited for. Book your holiday with one of our expert travel agents today.
 
@@ -109,45 +109,41 @@ customers can completely depend on us for an end to end travel solutions, while 
    </div>
    
   </div>
-  <div className='end-img-container'>
-      <div className='image-sos'>
-        
-      </div>
-     </div>
+  
         
       <h1>Check out these EPIC Destinations!</h1>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-9.jpg'
-              text='Explore the hidden waterfall deep inside the Amazon Jungle'
-              label='Adventure'
+              src='images/Mauritius.jpeg'
+              text='Combine swimming with dolphins and whale watching in Mauritius in a hassle-free combo tour'
+              label='Mauritius'
               path='/services'
             />
             <CardItem
-              src='images/img-2.jpg'
-              text='Travel through the Islands of Bali in a Private Cruise'
-              label='Luxury'
+              src='images/Nairobi.jpeg'
+              text='Enjoy a safari within sight of the city skyline.'
+              label='Nairobi'
               path='/services'
             />
           </ul>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-3.jpg'
-              text='Set Sail in the Atlantic Ocean visiting Uncharted Waters'
-              label='Mystery'
+              src='images/logos.jpeg'
+              text=' Nigeria’s largest city, sprawls inland from the Gulf of Guinea across Lagos Lagoon'
+              label='Lagos'
               path='/services'
             />
             <CardItem
-              src='images/img-4.jpg'
-              text='Experience Football on Top of the Himilayan Mountains'
-              label='Adventure'
+              src='images/Calgary.jpeg'
+              text=' Spend a Day Outdoors in Fish Creek Park'
+              label='Calgary'
               path='/products'
             />
             <CardItem
-              src='images/img-8.jpg'
-              text='Ride through the Sahara Desert on a guided camel tour'
-              label='Adrenaline'
+              src='images/Montego.jpeg'
+              text='Visit Jamaicas fascinating Mystic Lagoon on a night cruise!'
+              label='Montego Bay'
               path='/sign-up'
             />
           </ul>

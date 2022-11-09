@@ -3,10 +3,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+
 .form-heading{
     font-size: 25px;
     text-align: center;
     margin-bottom: 40px;
+    color: #ff3c00;
 
 }
 .modalBackground {
@@ -28,8 +31,8 @@
     flex-direction: column;
     padding: 25px;
     position: relative;
-    bottom: 500px;
-    left: 200px;
+    bottom: 550px;
+    left: 300px;
   }
 
   .modalContainer .title {
@@ -62,8 +65,8 @@
   
 
   .flightCardsContainer{
-    width: 1000px;
-    height: 800px;
+    width: 1200px;
+   
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -71,8 +74,8 @@
     flex-direction: column;
     padding: 25px;
     position: relative;
-    bottom: 700px;
-    left: 50px;
+    bottom: 500px;
+    right: 30px;
 
   }
   .flightCardsContainer h3{
@@ -95,31 +98,24 @@
     font-size: 25px;
     cursor: pointer;
   }
-  .cardContainer{
-    background-color:grey;
-   width: 800px;
-   height: 200px;
-   border-radius: 6px;
-   margin-left: 50px;
-  margin-top: 10px;
-
-
-  }
+  
  .flightPrice{
   display: flex;
   justify-content: space-around;
  }
  .flightPrice h3{
   position: relative;
-  left: 190px;
+  left: 280px;
  top: 50px;
+ color: white;
 
  }
  .flightPrice p3{
   position: relative;
-  left: 100px;
+  left: 150px;
   top: 20px;
   font-weight: bold;
+  color: white;
  }
   .flightname{
     display: flex;
@@ -130,7 +126,7 @@
     position: relative;
 
     top: 50px;
-    
+    border-top: 1px dashed red;
   }
   .flightname p{
     position: relative;
@@ -138,6 +134,7 @@
     left: 20px;
     font-size: 15px;
     font-weight: bold;
+    color: white;
   }
   .flightname p1{
     position: relative;
@@ -145,6 +142,7 @@
     right: 20px;
     font-size: 15px;
     font-weight: bold;
+    color: white;
   }
   .timePrice{
     margin-top: 10px;
@@ -152,20 +150,42 @@
     justify-content:space-evenly;
     position: relative;
     top: 50px;
+    
   }
   .timePrice p2{
    
     position: relative;
     bottom: 20px;
-    left: 130px;
+    left: 200px;
     font-weight: bold;
+    color: white;
   }
   .timePrice Button{
     position: relative;
-    left: 150px;
+    left: 200px;
     top: 10px;
     border: solid orange;
-    background-color: wheat;
+    background-color: #ff3c00;
     font-weight: bold ;
+    color: white;
 
+  }
+
+
+
+  @media only screen and (max-width: 760px) {
+    .modalBackground{
+      
+    
+   
+    
+      position: relative;
+      bottom: 300px;
+      right: 360px;
+  
+    }
+    .modalContainer{
+      width: 350px;
+    }
+    
   }

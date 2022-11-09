@@ -47,26 +47,14 @@ function Navbar() {
       setDropdown(false);
     }
   };
-   //this section for second form
-//    const[open, setopen] = React.useState(false);
    
-//  const handleOpen=()=>{
-
-// setopen(true);
-
-//   }
-//   const handleClose=()=>{
-
-//     setopen(true);
-    
-//       }
 
   return (
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-           The Bliss Flight
+           <div className='nav-logo'></div>
            
           </Link>
           <div className='menu-icon' onClick={handleClick}>

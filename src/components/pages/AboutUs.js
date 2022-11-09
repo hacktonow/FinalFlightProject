@@ -25,12 +25,12 @@ export default function AboutUs() {
   
    </div>
     <div className='about-content'>
-      <h1>About The Bliss Flight</h1>
+      <h1>About Bliss Flight</h1>
       <p1>
-      Welcome to the world of Blessings where all your travel dreams come true! Do you always dream about perfect holiday? But you are confused where to get the best cheap deals for your holidays 
-      or business trips? Then Bliss Flights is the right choice for you! If you wish to travel far and fast like travel light, pack your entire wish and take off all your troubles. Yes! Bliss Flights makes your dream come true.
-       Bliss Flights is an autonomous and privately owned travel agency that has grown to become a foremost UK board service designed to deliver wide-range travel management that brings on quality,
-       worth for money and customer care amenities founded in UNITED KINGDOM.
+      Welcome to the world of Blessings where all your travel dreams come true! Bliss Flights is registered in England and Wales companies’ house with registration number 14056310. Our registered Office address is 5 Coppy Bridge Drive, Rochdale, England, OL16 3AQ. 
+      All the flights and flight-inclusive holidays on this website are financially protected by the ATOL scheme as we are travel trade partner (agent) of ATOL Holder supplier. ATOL is a financial protection scheme for UK travel companies and over 20 million holidaymakers and travelers are protected each year.
+       When you buy an ATOL protected flight or flight-inclusive package from us you will receive an ATOL Certificate. This lists what is financially protected, where you can get information on what this means for you and who to contact if things go wrong. For more information please see our booking term & Conditions.
+        To find out more about ATOL protection and what travel arrangements are financially protected Please go to  <a href=" https://www.atol.org/about-atol" target="_blank"> https://www.atol.org/about-atol</a> 
        <br/>
        <br/>
        Bliss Flights provides the wide range of international and domestic accommodation even for the solo traveler..

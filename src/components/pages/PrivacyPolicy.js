@@ -18,7 +18,7 @@ _____________________________________________________<br/>
 <br/>
 <br/>
 
-We may change this privacy notice on occasion to reflect changes in the law and/or our privacy practices. We encourage you to check this privacy notice for changes whenever you visit our website: https://www.theblissflight.co.uk/privacy-policy
+We may change this privacy notice on occasion to reflect changes in the law and/or our privacy practices. We encourage you to check this privacy notice for changes whenever you visit our website: https://bliss-flights.co.uk/privacy_policy
 <br/>
 <br/>
 </p1>
@@ -147,7 +147,7 @@ Where we're relying upon your consent to process personal data, you can withdraw
  
 • Clicking on the 'Unsubscribe' link in any of the e-newsletters we send (this applies to email communications only) <br/>
 
-• Emailing us at info@theblissflight.co.uk, <br/>
+• Emailing us at info@bliss-flights.co.uk, <br/>
 
 • Or telephoning us at 020 3831 3448<br/>
 
@@ -231,7 +231,7 @@ _____________________________________________________<br/>
 <p1>
 If you have any questions about this privacy notice, or if you wish to exercise your rights or contact the DPO, you can contact us by: <br/>
 
-• Emailing us at info@theblissflight.co.uk , <br/>
+• Emailing us at info@bliss-flights.co.uk , <br/>
 
 • Or telephoning us at 020 3831 3448<br/>
 Bliss Flights |Privacy Notice v2 | 27.04.2022

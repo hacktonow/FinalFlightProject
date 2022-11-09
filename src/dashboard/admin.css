@@ -6,3 +6,8 @@
 .admin{
     flex: 4;
 }
+
+.img-container img{
+    height: 20px;
+    width: 60px;
+}

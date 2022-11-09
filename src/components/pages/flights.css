@@ -62,7 +62,10 @@
     background: url('/images/flights/cards/accra.jpeg') center center/cover no-repeat;
     border: 2px solid #ff3c00;
     border-radius: 10px;
+    
+    background-position: top 40px right 0px;
 }
+
 .f-card-3{
     background: url('/images/flights/cards/colombo.jpeg') center center/cover no-repeat;
     height: 300px;
@@ -98,7 +101,10 @@
 }
 .card-topbar h4 {
     
-   margin-left: 20px;
+   position: relative;
+   top: 5px;
+   left: 10px;
+   
    color: #fff;
 }
 .card-topbar p {
@@ -111,19 +117,19 @@
     position: relative;
     color: #fff;
     left: 120px;
-    bottom:40px ;
+    bottom:20px ;
  }
  .card-topbar img{
     height: 40px;
     width: 100px;
     position: relative;
     left: 240px;
-    bottom: 83px;
+    bottom: 60px;
  }
  .cards-button{
     background-color: rgb(112, 110, 110);
     height: 40px;
-    width: 100px;
+    width: 130px;
     font-size: 15px;
     font-weight: 700;
     position: relative;

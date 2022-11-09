@@ -25,30 +25,31 @@ export default function Flights() {
   <div className='f-card-1'>
   <div className='card-topbar'>
    <h4>Abuja</h4>
-   <p>Abuja</p>
+   
    <h3>£432 </h3>
    <img src='images/flights/cardicons/Emrit.png'/>
   </div>
-  <button className='cards-button'>BOOK NOW </button>
+  <button className='cards-button'>CALL TO BOOK </button>
   </div>
   <div className='f-card-2'>
+  
     <div className='card-topbar'>
     <h4>Accra</h4>
-   <p>Accra</p>
+   
    <h3>£471 </h3>
 
    <img src='images/flights/cardicons/Turkish.png'/>
   </div>
-  <button className='cards-button'>BOOK NOW </button>
+  <button className='cards-button'>CALL TO BOOK </button>
     </div>
     <div className='f-card-3'>
     <div className='card-topbar'>
     <h4>Colombo</h4>
-   <p>Colombo</p>
+   
    <h3>£501 </h3>
    <img src='images/flights/cardicons/etehad copy.png'/>
   </div>
-  <button className='cards-button'>BOOK NOW </button>
+  <button className='cards-button'>CALL TO BOOK</button>
     </div>
     
     
@@ -57,30 +58,30 @@ export default function Flights() {
   <div className='f-card-4'>
   <div className='card-topbar'>
    <h4>Entebbe</h4>
-   <p>Entebbe</p>
+   
    <h3>£389 </h3>
-   <img src='images/flights/cardicons/Qatar_Airways.png'/>
+   <img src='images/flights/cardicons/KLM-Royal-Dutch-Airlines.png'/>
   </div>
-  <button className='cards-button'>BOOK NOW </button>
+  <button className='cards-button'>CALL TO BOOK</button>
   </div>
   <div className='f-card-5'>
     <div className='card-topbar'>
     <h4>Freetown</h4>
-   <p>Freetown</p>
+   
    <h3>£558 </h3>
 
-   <img src='images/flights/cardicons/KLM-Royal-Dutch-Airlines.png'/>
+   <img src='images/flights/cardicons/brussels-airlines.png'/>
   </div>
-  <button className='cards-button'>BOOK NOW </button>
+  <button className='cards-button'>CALL TO BOOK</button>
     </div>
     <div className='f-card-6'>
     <div className='card-topbar'>
     <h4>Kathmandu</h4>
-   <p>Kathmandu</p>
+   
    <h3>£511 </h3>
-   <img src='images/flights/cardicons/brussels-airlines.png'/>
+   <img src='images/flights/cardicons/Qatar_Airways.png'/>
   </div>
-  <button className='cards-button'>BOOK NOW </button>
+  <button className='cards-button'>CALL TO BOOK</button>
     </div>
     
     

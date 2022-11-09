@@ -23,7 +23,7 @@ export const Admin = () => {
 
   const getFlight = async () => {
     const data = await AllData.getAllFlights();
-    console.log(data.docs);
+    
     setflightsData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -54,13 +54,16 @@ export const Admin = () => {
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
+            <TableCell >Airline Logo</TableCell>
             <TableCell >Airline Name</TableCell>
             <TableCell >Origin</TableCell>
             <TableCell>Destination</TableCell>
+            <TableCell >Stop</TableCell>
             <TableCell >Class	</TableCell>
             <TableCell >Adult Fare</TableCell>
             <TableCell >Child Fare</TableCell>
             <TableCell >Infant Fare</TableCell>
+            <TableCell >Time</TableCell>
             <TableCell >Actions</TableCell>
 
 
@@ -73,9 +76,12 @@ export const Admin = () => {
               key={doc.id}
             >
                 <TableCell align="left">{index + 1}</TableCell>
+                <TableCell align="left"><div className='img-container'><img className="cellImg" src={doc.img} alt="avatar" /></div></TableCell>
+                
               <TableCell align="left">{doc.airline}</TableCell>
               <TableCell >{doc.origin}</TableCell>
               <TableCell >{doc.desti}</TableCell>
+              <TableCell>{doc.fstop}</TableCell>
               <TableCell >{doc.classes}</TableCell>
               <TableCell >{doc.adult}</TableCell>
               <TableCell >{doc.child}</TableCell>

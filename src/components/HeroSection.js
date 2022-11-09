@@ -12,7 +12,7 @@ import './HeroSection.css';
 
 const useStyles = makeStyles(theme =>({
   pageContent:{
-    margin: theme.spacing(5),
+    margin: theme.spacing(8),
     padding: theme.spacing(3),
    
     opacity: 0.8,
@@ -29,7 +29,7 @@ function HeroSection() {
    <>
     <div className='hero-container'>
    
-    <video src='/videos/airplane.mp4' autoPlay loop muted />
+    {/* <video src='/videos/airplane.mp4' autoPlay loop muted /> */}
    
       <h1>Positively Impact</h1>
       <p>The Communities You Visit</p>

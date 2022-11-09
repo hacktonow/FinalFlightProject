@@ -111,7 +111,14 @@
     left: 35px;
 }
 
-
+.airline-logo-lable{
+position: relative;
+left: 50px;
+}
+.i-airline-logo{
+    position: relative;
+    left: 85px;
+}
 
 
 .add-flight-btn{
@@ -126,4 +133,8 @@
 }
 .add-flight-btn:hover{
  outline-color: aqua;
+}
+.i-flightstop{
+    position: relative;
+    left: 60px;
 }

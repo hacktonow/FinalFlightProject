@@ -45,3 +45,14 @@
   margin-left: 70px;
   size: 20px;
  }
+
+ .img-Container{
+  height: 60px;
+  width: 100px;
+  
+ }
+ .cellImg{
+  height: 60px;
+  width: auto;
+  margin-bottom: 5px;
+ }

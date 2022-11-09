@@ -84,13 +84,14 @@ body{
 		font-family: 'Poppins', sans-serif;
 	
 }
-.container{
+.container2{
   
 	max-width: 1170px;
 	margin:auto;
+	
 }
 .row{
-  width: 85;
+  
   margin: auto;
 	display: flex;
 flex-wrap: wrap;
@@ -191,7 +192,7 @@ ul{
  height: auto;
  width: auto;
  position: relative;
- bottom: 50px;
+ bottom: 15px;
  font-size: 30px;
  color: #ff3c00;
 
@@ -199,7 +200,7 @@ ul{
 .f-email{
   width: fit-content;
   
-  margin: 10px 0;
+  margin: 10px;
 
 }
 
