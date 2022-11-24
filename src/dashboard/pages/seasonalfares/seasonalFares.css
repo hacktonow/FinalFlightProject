@@ -6,3 +6,19 @@
   .sContainer{
       flex: 4;
   }
+  .seasionalFareC{
+    text-align: center;
+    margin-top: 20px;
+  }
+  .seasonal-placeholder{
+    height: 35px;
+    width: 200px;
+    outline: none;
+    border-radius: 5px;
+  }
+  .seasionalFareC button{
+    height: 30px;
+    width: 70px;
+    margin-left: 10px;
+    font-weight: bold;
+  }

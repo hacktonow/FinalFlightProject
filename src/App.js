@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './App.css';
 import Home from './components/pages/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -39,7 +39,6 @@ function App() {
 
 
 
-
   return (
     <>
 
@@ -70,7 +69,7 @@ function App() {
           <Route path='/locations' element={<ProtectedRoute><Locations /></ProtectedRoute>} />
           <Route path='/addflight' element={<ProtectedRoute><AddFlight /></ProtectedRoute>} />
 
-          <Route path='/seasional_fares' element={<ProtectedRoute><SeasionalFares /></ProtectedRoute>} />
+          <Route path='/seasional_fares' element={<ProtectedRoute><SeasionalFares  /></ProtectedRoute>} />
           <Route path='/f_classes' element={<ProtectedRoute><Fclasses /></ProtectedRoute>} />
 
           <Route path='/register' element={<ProtectedRoute><Register /></ProtectedRoute>} />

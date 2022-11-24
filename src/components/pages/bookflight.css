@@ -266,7 +266,7 @@
   }
   .Right-Fare-Adult h4{
     color: #ff3c00;
-    margin-right:20px ;
+    margin-right:10px ;
     
   }
 
@@ -282,7 +282,7 @@
   }
   .Right-Fare-Child h4{
     color: #ff3c00;
-    margin-right:20px ;
+    margin-right:10px ;
     
   }
   .Right-Fare-Infant{
@@ -294,7 +294,7 @@
   }
   .Right-Fare-Infant h4{
     color: #ff3c00;
-    margin-right: 20px;
+    margin-right: 10px;
   }
   .Right-Fare-Total{
     color: #ff3c00;
@@ -305,7 +305,12 @@
   }
   .Right-Fare-Total h3{
     margin-left: -20px;
-    font-size: 40px;
+    font-size: 30px;
+  }
+  .Right-Fare-Total h4{
+    
+    font-size: 20px;
+    margin-right: 10px;
   }
 
   .Second-From {
@@ -876,7 +881,7 @@ color: #fff;
   }
   .Right-Fare-Adult h4{
     color: #ff3c00;
-    margin-right:20px ;
+    margin-right:10px ;
     
   }
 
@@ -892,7 +897,7 @@ color: #fff;
   }
   .Right-Fare-Child h4{
     color: #ff3c00;
-    margin-right:20px ;
+    margin-right:10px ;
     
   }
   .Right-Fare-Infant{
@@ -904,19 +909,21 @@ color: #fff;
   }
   .Right-Fare-Infant h4{
     color: #ff3c00;
-    margin-right: 20px;
+    margin-right: 10px;
   }
   .Right-Fare-Total{
     color: #ff3c00;
     
     position: relative;
     left: 230px;
-    bottom: 120px;
+    bottom: 110px;
   }
   .Right-Fare-Total h3{
-    margin-left: -20px;
-    font-size: 40px;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 5px;
   }
+  
 
 
 

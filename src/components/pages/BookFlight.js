@@ -9,6 +9,7 @@ import DialogContent from '@mui/material/DialogContent';
 import { Box, TextField, Button,Modal, Typography, Checkbox } from "@material-ui/core";
 import DialogActions from '@mui/material/DialogActions';
 import emailjs from '@emailjs/browser';
+import AllData from '../../dashboard/data/AllData';
 
 const style = {
   position: 'absolute',
@@ -42,10 +43,35 @@ export default function BookFlight() {
   const [Adult, setAdult] = useState("")
   const [Child, setChild] = useState("")
   const [Infant, setInfant] = useState("")
+  const [percentageValue, setPercentageValue] = useState(0)
+  //this section for seasional fair 
+  const [seasonaldata, setseasonalData] = useState([]);
+  //this section for getting seasional  data from database
 
+
+const getSeason = async () => {
+  const data = await AllData.getAllSeasonal();
+  const selectedMonth  = state.Fromdate.getMonth();
+  setseasonalData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  data.docs.map((val,index) => {
+    console.log(val.data())
+    console.log(index)
+    if(selectedMonth == index){
+      setPercentageValue(val.data().Amount)
+      console.log('we have to update prices for %: ', val.data().Amount )
+    }
+  }
+
+  )
+};
+//  const calculatePercentage = (amount) => {
+//   console.log(((amount/100)*percentageValue));
+//   return ((amount/100)*percentageValue);
+//  }
 
   useEffect(() => {
     handleClickOpen();
+    getSeason();
   }, []);
 
   const { state } = useLocation();
@@ -99,11 +125,12 @@ const sendEmail = (e) => {
     <>
       <Navbar />
       <div className='bookflight-Container'>
-
+      
         <h1 >Book Flight</h1>
        
       </div>
       <div className='bookFlight-Main'>
+      
         {/* { flightsdata.length !== 0 && */}
         <div className="flight_Cards_Background">
           
@@ -183,25 +210,25 @@ const sendEmail = (e) => {
                   
                       <div className='Right-Fare-Adult'>
                         <h4>Adult:</h4>
-                        <h3>₤{parseInt(doc.adult)*parseInt(state.Adult)}</h3>
+                        <h3> ₤{parseFloat((((parseInt(doc.adult) + ((doc.adult/100)*percentageValue))) * parseInt(state.Adult))).toFixed(2) }</h3>
                       </div>
                       <div className='Right-Fare-Child'>
                         <h4>Child:</h4>
-                        <h3>₤{parseInt(doc.child)*parseInt(state.Child)}</h3>
+                        <h3> ₤{parseFloat(((parseInt(doc.child) + ((doc.child/100)*percentageValue))) * parseInt(state.Child)).toFixed(2) }</h3>
                       </div>
                       <div className='Right-Fare-Infant'>
                         <h4>Infant:</h4>
-                        <h3>₤{parseInt(doc.infant)*parseInt(state.Infant)}</h3>
+                        <h3> ₤{parseFloat(((parseInt(doc.infant) + ((doc.infant/100)*percentageValue))) * parseInt(state.Infant)).toFixed(2) }</h3>
                       </div>
                       <hr/>
                       <div className='Right-Fare-Total'>
                         <h4>Total Fare</h4>
                         
-                        <h3>₤{parseInt(doc.adult)*parseInt(state.Adult)+parseInt(doc.child)*parseInt(state.Child)+parseInt(doc.infant)*parseInt(state.Infant)}</h3>
+                        <h3 >₤{parseFloat((((parseInt(doc.adult) + ((doc.adult/100)*percentageValue))) * parseInt(state.Adult)) + (((parseInt(doc.infant) + ((doc.infant/100)*percentageValue))) * parseInt(state.Infant)) + (((parseInt(doc.child) + ((doc.child/100)*percentageValue))) * parseInt(state.Child))).toFixed(2)}</h3>
                       </div>
 
 
-                      <Button className='btn' onClick={()=>{handleClickOpenModal(doc.origin,doc.desti,doc.airline,doc.classes,parseInt(doc.adult)*parseInt(state.Adult),parseInt(doc.child)*parseInt(state.Child),parseInt(doc.infant)*parseInt(state.Infant))}} >Book Now</Button>
+                      <Button className='btn' onClick={()=>{handleClickOpenModal(doc.origin,doc.desti,doc.airline,doc.classes,parseFloat((((parseInt(doc.adult) + ((doc.adult/100)*percentageValue))) * parseInt(state.Adult))).toFixed(2),parseFloat(((parseInt(doc.child) + ((doc.child/100)*percentageValue))) * parseInt(state.Child)).toFixed(2),parseFloat(((parseInt(doc.infant) + ((doc.infant/100)*percentageValue))) * parseInt(state.Infant)).toFixed(2))}} >Book Now</Button>
                       <div className='number-Container'>
                       <h3>OR CALL</h3>
                     <h3>020 3927 7690</h3>
@@ -279,7 +306,7 @@ const sendEmail = (e) => {
               </div>
               <div className='Total-Fare'>
               <p>Total Fare:</p>
-              <p1>₤{parseInt(Adult)+parseInt(Child)+parseInt(Infant)}</p1>
+              <p1>₤{parseFloat((parseInt(Adult)+parseInt(Child)+parseInt(Infant))).toFixed(2)}</p1>
               </div>
               
              </div>

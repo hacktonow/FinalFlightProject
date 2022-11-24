@@ -21,6 +21,8 @@ import {
     const classCollectionRef = collection(db, "classes");
     //this for flights
     const flightCollectionRef = collection(db, "flights");
+    //this for seasonalfares
+    const seasonalCollectionRef = collection(db, "seasonalfares")
 
 class AllData {
     //  this portion for users
@@ -151,6 +153,31 @@ class AllData {
             getFlight = (id) => {
               const flightDoc = doc(db, "flights", id);
               return getDoc(flightDoc);
+            };
+
+            //this section for seasonal fare
+
+            addSeasonal = (newSeasonal) => {
+              return addDoc(seasonalCollectionRef, newSeasonal);
+            };
+          
+            updateSeasonal = (id, updatedSeasonal) => {
+              const SeasonalDoc = doc(db, "seasonalfares", id);
+              return updateDoc(SeasonalDoc, updatedSeasonal);
+            };
+          
+            deleteSeasonal = (id) => {
+              const SeasonalDoc = doc(db, "seasonalfares", id);
+              return deleteDoc(SeasonalDoc);
+            };
+          
+            getAllSeasonal = () => {
+              return getDocs(seasonalCollectionRef);
+            };
+          
+            getSeasonal = (id) => {
+              const SeasonalDoc = doc(db, "seasonalfares", id);
+              return getDoc(SeasonalDoc); 
             };
 
     
